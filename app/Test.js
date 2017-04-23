@@ -3,7 +3,7 @@ class text extends Component{
     render() {
         return (
             <div>
-                文本内容
+                Hello world
             </div>
         );
     }
