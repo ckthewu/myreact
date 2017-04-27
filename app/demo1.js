@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import ReactDOM from 'react-dom'
 
 
 class Comment extends Component{
@@ -51,7 +50,7 @@ class CommentForm extends Component{
 
 class CommentList extends Component{
     render(){
-        let comments = this.props.data.map(function(comment){
+        let comments = this.props.data.map((comment)=>{
             return(
                 <Comment author={comment.author} key={comment.id}>{comment.text}</Comment>
             )
@@ -68,19 +67,19 @@ class CommentList extends Component{
 class CommentBox extends Component{
     constructor(props){
         super(props);
-        this.state = {data: [], count: 0};
+        this.state = {data: []};
 
     }
     setData(){
-        if (this.state.count < 10){
+        if (this.state.data.length < 10){
             let date = new Date();
-            let data = this.state.data.concat({'id': this.state.count, 'author': 'god', 'text': date.toString()});
-            this.setState({data: data, count: this.state.count+1});
+            let data = this.state.data.concat({'id': this.state.data.length, 'author': 'god', 'text': date.toString()});
+            this.setState({data: data});
         }
     }
     getSubmit(comment){
-        let data = this.state.data.concat({id: this.state.count, author: comment.author, text: comment.text});
-        this.setState({data: data, count: this.state.count+1});
+        let data = this.state.data.concat({id: this.state.data.length, author: comment.author, text: comment.text});
+        this.setState({data: data});
     }
     componentDidMount() {
         this.setData();
