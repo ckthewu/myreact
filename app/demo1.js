@@ -71,7 +71,7 @@ class CommentBox extends Component{
 
     }
     setData(){
-        if (this.state.data.length < 10){
+        if (this.state.data.length < 5){
             let date = new Date();
             let data = this.state.data.concat({'id': this.state.data.length, 'author': 'god', 'text': date.toString()});
             this.setState({data: data});
